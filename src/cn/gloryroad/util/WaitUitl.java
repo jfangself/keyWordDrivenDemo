@@ -23,4 +23,12 @@ public class WaitUitl {
 		// 调用expectconditions的presenceOfElementLocated方法判断页面元素是否出现
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpathExpression)));
 	}
+
+	// 显示等待页面元素出现的封装方法，参数表示页面元素的By对象，此函数可以支持更多定位表达式
+	public static void waitWebElement(WebDriver driver, By by) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		// 调用expectedcondition的方法判断页面元素是否出现
+		wait.until(ExpectedConditions.presenceOfElementLocated(by));
+
+	}
 }
