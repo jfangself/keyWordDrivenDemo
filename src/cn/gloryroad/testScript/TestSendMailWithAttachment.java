@@ -30,7 +30,7 @@ public class TestSendMailWithAttachment {
 		userName.clear();
 		userName.sendKeys("joey_fang01@163.com");
 		passWord.clear();
-		passWord.sendKeys("Changeme_12");
+		passWord.sendKeys("Changeme_121");
 		loginButton.click();
 		// 调用封装的显示等待，在也买年显示退出连接后，继续执行后续代码
 /*		
