@@ -19,8 +19,7 @@ public class KeyWordsAction {
 	// 声明静态webdriver对象，用于在此类中相关driver的操作
 	public static WebDriver driver;
 	// 声明存储定位表达配置文件的objectmap对象
-	private static ObjectMap objectMap = new ObjectMap(
-			"D://ECLIPSE/GitHub//Demo//keyWordDrivenDem//objectMap.properties");
+	private static ObjectMap objectMap = new ObjectMap(Constants.Path_ConfigurationFile);
 
 	/*
 	 * 此方法的名称对应excel文件“关键字”列中的open_browser关键字
