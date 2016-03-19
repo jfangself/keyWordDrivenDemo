@@ -12,6 +12,7 @@ import org.testng.Assert;
 
 import java.util.List;
 
+import cn.gloryroad.testScript.TestSuiteByExcel;
 import cn.gloryroad.util.KeyBoardUtil;
 import cn.gloryroad.util.Log;
 import cn.gloryroad.util.ObjectMap;
@@ -67,6 +68,8 @@ public class KeyWordsAction {
 			Log.info("在用户名输入框输入用户名" + userName);
 
 		} catch (Exception e) {
+			TestSuiteByExcel.testResult=false;
+			Log.info("在用户名输入框输入用户名出现异常，具体信息：" + e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -82,6 +85,7 @@ public class KeyWordsAction {
 			Log.info("在密码框输入密码" + password);
 
 		} catch (Exception e) {
+			TestSuiteByExcel.testResult = false;
 			Log.info("在密码框输入密码时出现异常，具体异常信息：" + e.getMessage());
 			e.printStackTrace();
 		}
@@ -96,6 +100,8 @@ public class KeyWordsAction {
 			driver.findElement(objectMap.getLocator("login.button")).click();
 			Log.info("单机登录按钮");
 		} catch (Exception e) {
+
+			TestSuiteByExcel.testResult = false;
 			Log.info("在密码框输入密码时出现异常，具体异常信息：" + e.getMessage());
 			e.printStackTrace();
 		}
@@ -112,6 +118,7 @@ public class KeyWordsAction {
 			Log.info("显示等待元素出现成功，元素是" + xpathExpression);
 
 		} catch (Exception e) {
+			TestSuiteByExcel.testResult = false;
 			Log.info("在等待元素时出现异常，具体异常信息：" + e.getMessage());
 			e.printStackTrace();
 		}
@@ -125,6 +132,7 @@ public class KeyWordsAction {
 			driver.findElement(objectMap.getLocator("homepage.writeLetterLink")).click();
 			Log.info("单击写信连接成功");
 		} catch (Exception e) {
+			TestSuiteByExcel.testResult = false;
 			Log.info("单机写信链接时出现异常，具体异常信息：" + e.getMessage());
 			e.printStackTrace();
 		}
@@ -232,6 +240,8 @@ public class KeyWordsAction {
 			Log.info("关闭浏览器窗口");
 			driver.quit();
 		} catch (Exception e) {
+
+			TestSuiteByExcel.testResult = false;
 			Log.info("关闭浏览器出现异常，具体异常信息：" + e.getMessage());
 			e.printStackTrace();
 		}

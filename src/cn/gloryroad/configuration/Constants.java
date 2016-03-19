@@ -18,5 +18,9 @@ public class Constants {
 	public static final String Sheet_TestSteps = "发送邮件";
 	// 测试用例集sheet的常量设定
 	public static final String Sheet_TestSuite = "测试用例集合";
+	// 第六列用5表示，测试结果列
+	public static final int Col_TestStepTestResult = 5;
+	// 测试集合sheet中的列号常量设定，测试用例执行结果列
+	public static final int Col_TestSuiteTestResult = 3;
 
 }

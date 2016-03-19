@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Mar 13 18:37:22 CST 2016</td>
+<td>Started on:</td><td>Sat Mar 19 14:10:52 CST 2016</td>
 </tr>
-<tr><td>Total time:</td><td>20 seconds (20831 ms)</td>
+<tr><td>Total time:</td><td>1 seconds (1561 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,28 +75,11 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='cn.gloryroad.testScript.TestSendMailWithAttachment.testSendMailWithAttachment()'><b>testSendMailWithAttachment</b><br>Test class: cn.gloryroad.testScript.TestSendMailWithAttachment</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[contains(@id,&apos;_mail_component_61_61&apos;)]/span[2]&quot;}
-Command duration or timeout: 18 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.49.0&apos;, revision: &apos;365eeb4&apos;, time: &apos;2016-01-13 18:33:29&apos;
-System info: host: &apos;YQM1HPPSRZYSQMJ&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_71&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=22.0, platform=WINDOWS, browserConnectionEnabled=true, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: afdf7266-4b26-42e2-8593-1be91bc18f93
-*** Element info: {Using=xpath, value=//*[contains(@id,&apos;_mail_component_61_61&apos;)]/span[2]}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at cn.gloryroad.testScript.TestSendMailWithAttachment.testSendMailWithAttachment(TestSendMailWithAttachment.java:43)
+<td title='cn.gloryroad.testScript.TestSuiteByExcel.testTestSuite()'><b>testTestSuite</b><br>Test class: cn.gloryroad.testScript.TestSuiteByExcel</td>
+<td><div><pre>java.lang.AssertionError: 执行出现异常，测试用例执行失败
+	at org.testng.Assert.fail(Assert.java:94)
+	at cn.gloryroad.testScript.TestSuiteByExcel.execute_Actions(TestSuiteByExcel.java:76)
+	at cn.gloryroad.testScript.TestSuiteByExcel.testTestSuite(TestSuiteByExcel.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -121,38 +104,11 @@ Session ID: afdf7266-4b26-42e2-8593-1be91bc18f93
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[contains(@id,&apos;_mail_component_61_61&apos;)]/span[2]&quot;}
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.49.0&apos;, revision: &apos;365eeb4&apos;, time: &apos;2016-01-13 18:33:29&apos;
-System info: host: &apos;YQM1HPPSRZYSQMJ&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_71&apos;
-Driver info: driver.version: unknown
-	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/ADMINI~1/AppData/Local/Temp/anonymous2171312470299971925webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10675)
-	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///C:/Users/ADMINI~1/AppData/Local/Temp/anonymous2171312470299971925webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10684)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/ADMINI~1/AppData/Local/Temp/anonymous2171312470299971925webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12551)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///C:/Users/ADMINI~1/AppData/Local/Temp/anonymous2171312470299971925webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12556)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///C:/Users/ADMINI~1/AppData/Local/Temp/anonymous2171312470299971925webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12498)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1819940427", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1819940427'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[contains(@id,&apos;_mail_component_61_61&apos;)]/span[2]&quot;}
-Command duration or timeout: 18 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.49.0&apos;, revision: &apos;365eeb4&apos;, time: &apos;2016-01-13 18:33:29&apos;
-System info: host: &apos;YQM1HPPSRZYSQMJ&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_71&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=22.0, platform=WINDOWS, browserConnectionEnabled=true, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: afdf7266-4b26-42e2-8593-1be91bc18f93
-*** Element info: {Using=xpath, value=//*[contains(@id,&apos;_mail_component_61_61&apos;)]/span[2]}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at cn.gloryroad.testScript.TestSendMailWithAttachment.testSendMailWithAttachment(TestSendMailWithAttachment.java:43)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1207608476", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1207608476'><pre>java.lang.AssertionError: 执行出现异常，测试用例执行失败
+	at org.testng.Assert.fail(Assert.java:94)
+	at cn.gloryroad.testScript.TestSuiteByExcel.execute_Actions(TestSuiteByExcel.java:76)
+	at cn.gloryroad.testScript.TestSuiteByExcel.testTestSuite(TestSuiteByExcel.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -177,19 +133,9 @@ Session ID: afdf7266-4b26-42e2-8593-1be91bc18f93
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[contains(@id,&apos;_mail_component_61_61&apos;)]/span[2]&quot;}
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.49.0&apos;, revision: &apos;365eeb4&apos;, time: &apos;2016-01-13 18:33:29&apos;
-System info: host: &apos;YQM1HPPSRZYSQMJ&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_71&apos;
-Driver info: driver.version: unknown
-	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/ADMINI~1/AppData/Local/Temp/anonymous2171312470299971925webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10675)
-	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///C:/Users/ADMINI~1/AppData/Local/Temp/anonymous2171312470299971925webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10684)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/ADMINI~1/AppData/Local/Temp/anonymous2171312470299971925webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12551)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///C:/Users/ADMINI~1/AppData/Local/Temp/anonymous2171312470299971925webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12556)
-	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///C:/Users/ADMINI~1/AppData/Local/Temp/anonymous2171312470299971925webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12498)
 </pre></div></td>
-<td>12</td>
-<td>cn.gloryroad.testScript.TestSendMailWithAttachment@49e4cb85</td></tr>
+<td>1</td>
+<td>cn.gloryroad.testScript.TestSuiteByExcel@30c7da1e</td></tr>
 </table><p>
 </body>
 </html>
