@@ -17,7 +17,7 @@ public class TestSuiteByExcel {
 	public static int testLastStep;
 	public static String testCaseID;
 	public static String testCaseRunFlag;
-	public static Boolean testResult;
+	public static boolean testResult;
 
 	@Test
 	public void testTestSuite() throws Exception {
@@ -52,11 +52,23 @@ public class TestSuiteByExcel {
 				for (; testStep < testLastStep; testStep++) {
 					// 从“发送邮件”sheet中读取关键子和操作值，调用execute_Actions方法
 					keyword = ExcelUtil.getCellData(Constants.Sheet_TestSteps, testStep, Constants.Col_keyWordAction);
+					Log.info("从excel文件读取到的关键字是：" + keyword);
 					value = ExcelUtil.getCellData(Constants.Sheet_TestSteps, testStep, Constants.Col_ActionValue);
+					Log.info("从excel文件读取的操作值是：" + value);
 					execute_Actions();
+					if (testResult == false) {
+						// 如果测试用例的任何一个测试步骤执行失败，则测试用例集合sheet中的当前执行测试用例的执行结果设定为”测试执行失败“
+						ExcelUtil.setCellData("测试用例集合", testCaseNo, Constants.Col_TestSuiteTestResult, "测试执行失败");
+					}
 				}
 				// 在日志中打印测试用例执行完毕
 				Log.endTestCase(testCaseID);
+				// 当前测试用例出现执行失败的步骤，则整个测试用例设定为失败状态，break语句跳出当前for循环，继续执行测试集合中的下一个测试用例
+				break;
+			}
+			if (testResult == true) {
+				ExcelUtil.setCellData(Constants.Sheet_TestSuite, testCaseNo, Constants.Col_TestSuiteTestResult,
+						"测试执行成功");
 			}
 		}
 	}
@@ -69,7 +81,22 @@ public class TestSuiteByExcel {
 				 */
 				if (method[i].getName().equals(keyword)) {
 					method[i].invoke(keyWordsaction, value);
-					break;
+					if (method[i].getName().equals(keyword)) {
+						method[i].invoke(keyWordsaction, value);
+						if (testResult == true) {
+							// 当前测试步骤执行成功，在”发送邮件“sheet中，会将当前执行的测试步骤结果设定为”测试步骤执行成功“
+							ExcelUtil.setCellData(Constants.Sheet_TestSteps, testStep, Constants.Col_TestStepTestResult,
+									"测试步骤执行成功");
+							break;
+						} else {
+							ExcelUtil.setCellData(Constants.Sheet_TestSteps, testStep, Constants.Col_TestStepTestResult,
+									"测试步骤执行失败");
+							// 测试步骤执行失败，则直接关闭浏览器，不再执行后续的测试步骤
+							KeyWordsAction.close_browser("");
+							break;
+						}
+					}
+
 				}
 			}
 		} catch (Exception e) {
