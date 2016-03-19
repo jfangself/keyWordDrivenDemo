@@ -2,6 +2,7 @@ package cn.gloryroad.configuration;
 
 import static cn.gloryroad.util.WaitUitl.waitWebElement;
 
+import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,6 +13,7 @@ import org.testng.Assert;
 import java.util.List;
 
 import cn.gloryroad.util.KeyBoardUtil;
+import cn.gloryroad.util.Log;
 import cn.gloryroad.util.ObjectMap;
 import cn.gloryroad.util.WaitUitl;
 
@@ -20,6 +22,11 @@ public class KeyWordsAction {
 	public static WebDriver driver;
 	// 声明存储定位表达配置文件的objectmap对象
 	private static ObjectMap objectMap = new ObjectMap(Constants.Path_ConfigurationFile);
+
+	static {
+		// 指定Log4j配置文件为log4j.xml
+		DOMConfigurator.configure("log4j.xml");
+	}
 
 	/*
 	 * 此方法的名称对应excel文件“关键字”列中的open_browser关键字
@@ -30,11 +37,14 @@ public class KeyWordsAction {
 		if (browserName.equals("ie")) {
 			System.setProperty("webdriver.ie.driver", "C:\\IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
+			Log.info("IE实例已经声明");
 		} else if (browserName.equals("firefox")) {
 			driver = new FirefoxDriver();
+			Log.info("firefox实例已经声明");
 		} else {
 			System.setProperty("Webdriver.chrome.driver", "C:\\chromedriver.exe");
 			driver = new ChromeDriver();
+			Log.info("chrome实例已经声明");
 		}
 
 	}
@@ -43,6 +53,7 @@ public class KeyWordsAction {
 	// 读取excel“操作值”中的网址内容作为浏览器访问的网址
 	public static void navigate(String url) {
 		driver.get(url);
+		Log.info("浏览器访问网址" + url);
 	}
 
 	// 此方法的名称对应excel文件“关键字”列中的input_username关键字
@@ -51,7 +62,9 @@ public class KeyWordsAction {
 		System.out.println("收到的参数值：" + userName);
 		try {
 			driver.findElement(objectMap.getLocator("login.username")).clear();
+			Log.info("清除用户名输入框的所有内容");
 			driver.findElement(objectMap.getLocator("login.username")).sendKeys(userName);
+			Log.info("在用户名输入框输入用户名" + userName);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -64,9 +77,12 @@ public class KeyWordsAction {
 	public static void input_passWord(String password) throws Exception {
 		try {
 			driver.findElement(objectMap.getLocator("login.password")).clear();
+			Log.info("清除密码框原有内容");
 			driver.findElement(objectMap.getLocator("login.password")).sendKeys(password);
+			Log.info("在密码框输入密码" + password);
 
 		} catch (Exception e) {
+			Log.info("在密码框输入密码时出现异常，具体异常信息：" + e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -78,7 +94,9 @@ public class KeyWordsAction {
 	public static void click_login(String string) {
 		try {
 			driver.findElement(objectMap.getLocator("login.button")).click();
+			Log.info("单机登录按钮");
 		} catch (Exception e) {
+			Log.info("在密码框输入密码时出现异常，具体异常信息：" + e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -91,11 +109,25 @@ public class KeyWordsAction {
 		try {
 			// 调用封装的waitWebElement函数显式等待页面元素是否出现
 			waitWebElement(driver, objectMap.getLocator(xpathExpression));
+			Log.info("显示等待元素出现成功，元素是" + xpathExpression);
 
 		} catch (Exception e) {
+			Log.info("在等待元素时出现异常，具体异常信息：" + e.getMessage());
 			e.printStackTrace();
 		}
 
+	}
+
+	// 此方法的名称对应click_writeLetterLink
+	// 用于单击写信链接
+	public static void click_writeLetterLink(String string) {
+		try {
+			driver.findElement(objectMap.getLocator("homepage.writeLetterLink")).click();
+			Log.info("单击写信连接成功");
+		} catch (Exception e) {
+			Log.info("单机写信链接时出现异常，具体异常信息：" + e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 	// 此方法的名称对应excel文件“关键字”列中Input_recipients关键字
@@ -103,8 +135,10 @@ public class KeyWordsAction {
 	public static void input_recipients(String recipients) {
 		try {
 			driver.findElement(objectMap.getLocator("writemailpage.recipients")).sendKeys(recipients);
+			Log.info("在收件人输入框成功输入收件人信息" + recipients);
 
 		} catch (Exception e) {
+			Log.info("在收件人输入框成功输入收件人信息，具体异常信息：" + e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -195,8 +229,10 @@ public class KeyWordsAction {
 	public static void close_browser(String string) {
 		try {
 			System.out.println("浏览器关闭函数被执行");
+			Log.info("关闭浏览器窗口");
 			driver.quit();
 		} catch (Exception e) {
+			Log.info("关闭浏览器出现异常，具体异常信息：" + e.getMessage());
 			e.printStackTrace();
 		}
 	}
