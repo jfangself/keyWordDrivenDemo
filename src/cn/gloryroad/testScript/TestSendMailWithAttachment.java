@@ -1,15 +1,15 @@
 package cn.gloryroad.testScript;
 
 import org.testng.annotations.Test;
-
 import org.testng.Assert;
-
 import org.testng.annotations.BeforeMethod;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
+
 import static cn.gloryroad.util.KeyBoardUtil.*;
 import static cn.gloryroad.util.WaitUitl.*;
 
@@ -33,22 +33,26 @@ public class TestSendMailWithAttachment {
 		passWord.sendKeys("Changeme_121");
 		loginButton.click();
 		// 调用封装的显示等待，在也买年显示退出连接后，继续执行后续代码
-/*		
+		/*
 		 * WebElement userName = driver.findElement(By
 		 * .xpath("//*[@id='textfield-1018-inputEl']"));
 		 */
 		sleep(10000);
 		waitWebElement(driver, "//a[contains(text(), '退出')]");
-		// 定位页面写信连接 .(By.xpath("//*[contains(@id,'_mail_component_61_61')]/span[2]"));
-		WebElement writeMailLink = driver.findElement(By.xpath("//*[contains(@id,'_mail_component_61_61')]/span[2]"));
+		// 定位页面写信连接
+		// .(By.xpath("//*[contains(@id,'_mail_component_61_61')]/span[2]"));
+		WebElement writeMailLink = driver.findElement(By
+				.xpath("//*[contains(@id,'_mail_component_61_61')]/span[2]"));
 		// .findElement(By.xpath("//*[contains(@id,'_mail_component_61_61')]/span[contains(.,'写信')]"));
 		writeMailLink.click();
 		// 调用封装的显示等待函数，在页面显示收信人后，执行代码
 		waitWebElement(driver, "//a[contains(.,'收件人')]");
 		// 定位写信页面的收件人输入框
-		WebElement recipients = driver.findElement(By.xpath("//*[contains(@id,'_mail_emailinput_0_')]/input"));
+		WebElement recipients = driver.findElement(By
+				.xpath("//*[contains(@id,'_mail_emailinput_0_')]/input"));
 		// 定位写信页面的邮件主题输入狂
-		WebElement mailSubject = driver.findElement(By.xpath("//*[contains(@id,'_mail_input_2')]/input"));
+		WebElement mailSubject = driver.findElement(By
+				.xpath("//*[contains(@id,'_mail_input_2')]/input"));
 		// 在收件人输入
 		recipients.sendKeys("ylylfang@126.com");
 		mailSubject.sendKeys("test send to self with selenium");
@@ -77,7 +81,8 @@ public class TestSendMailWithAttachment {
 		 * 所以使用发送按钮的文字属性将两个发送按钮同时定位，存储到list 然后调用容器中的其中一个按钮，定位唯一一个发送按钮
 		 */
 		List<WebElement> buttons = driver
-				.findElements(By.xpath("//a[contains(@id,'_mail_button_')]/span[contains(.,'发送')]"));
+				.findElements(By
+						.xpath("//a[contains(@id,'_mail_button_')]/span[contains(.,'发送')]"));
 		buttons.get(1).click();
 		/* 调用显示等待，在页面显示出包含关键字”succinfo“的ID属性后，继续执行 */
 		waitWebElement(driver, "//*[contains(@id,'_succInfo')]");
@@ -88,6 +93,7 @@ public class TestSendMailWithAttachment {
 	@BeforeMethod
 	public void beforeMethod() {
 		driver = new FirefoxDriver();
+		DOMConfigurator.configure("log4j.xml");
 	}
 
 	@AfterMethod
